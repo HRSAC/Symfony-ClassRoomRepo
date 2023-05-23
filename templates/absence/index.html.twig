@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Absence index{% endblock %}
+
+{% block styleAbsence %}
+<link href="{{asset('asset/assets/css/absence.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<div id="ContainerDeux">
+    <div id="AjoutProfs" >
+        <h5 class="titreEtudiant">Absence Eleve</h5>
+        {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('app_absence_new') }}">
+            <button class="btn btn-primary">Nouvelle absence</button>
+        </a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="container" >
+
+    {% for message in app.flashes('success') %}
+    <div class="alert alert-success mt-5">
+        {{ message }}
+    </div>
+{% endfor %}    
+    <table class="table table-hover mt-5">
+        <thead>
+            <tr class="table-dark">
+                <th>Eleve</th>
+                <th>Date</th>
+                <th>Justificatif</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for absence in absences %}
+            <tr class="table-primary">
+                <td>{{ absence.peut }}</td>
+                <td>{{ absence.date ? absence.date|date('Y-m-d') : '' }}</td>
+                <td>{{ absence.justificatif }}</td>
+                <td>
+                    <a href="{{ path('app_absence_edit', {'id': absence.id}) }}">
+                        <button class="btn btn-primary">Modifier</button>
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation flex justify-center mb-8" >
+        {{ knp_pagination_render(absences) }}
+    </div>
+</div>
+
+    
+    <a href="{{ path('app_absence_new') }}">Create new</a>
+{% endblock %}

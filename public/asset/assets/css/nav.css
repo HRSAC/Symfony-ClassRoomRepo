@@ -1,0 +1,36 @@
+body{font-size:14px;}
+
+.navbar-vertical.navbar-expand-lg .navbar-nav .nav-link {
+   
+}
+ 
+
+/** sidebar width*/
+.navbar-vertical.navbar-expand-lg {
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 200px;
+   overflow-y: auto;
+}
+ 
+
+.navbar-vertical .navbar-nav .nav-link {
+    display: flex;
+    align-items: center;
+   
+}
+
+ .navbar-vertical.navbar-expand-lg .navbar-nav .nav .nav-link {
+    padding-left: 2.25rem;
+}
+
+.navHeading {
+    padding-left: 0.35rem;
+}
+.navPagesSub .nav-item .nav-link {
+    padding-left: 3.25rem!important;
+}
+

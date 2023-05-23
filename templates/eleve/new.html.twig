@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Eleve{% endblock %}
+
+{% block styleNewEleve %}
+	<link href="{{asset('asset/assets/css/newEleves.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<tbody>
+		
+    <div id="ContainerDeux">
+        <div id="AjoutProfs" >
+            <a> Ajouter un étudiant</a>
+        </div>
+    </div>
+    <div class="container">
+        <div id="infoAjout">
+            {{ include('eleve/_form.html.twig') }}
+            <a  href="{{ path('app_eleve_index') }}">
+            </a>
+        </div>
+    </div>
+</tbody>
+
+{% endblock %}

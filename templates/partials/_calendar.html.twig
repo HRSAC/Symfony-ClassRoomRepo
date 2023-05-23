@@ -1,0 +1,96 @@
+{% block javascripts %}
+<script>
+    window.onload = () => {
+        let calendarElt = document.querySelector("#calendrier")
+        
+
+        let calendar = new FullCalendar.Calendar(calendarElt, {
+
+            slotMinTime: '10:00',
+            slotMaxTime: '22:00',
+
+            initialView: 'timeGridWeek',
+            locale:'fr',
+            timeZone: 'paris',
+
+            buttonText: {
+            prev: 'Précédent',
+            next: 'Suivant',
+            today: 'Aujourd\'hui',
+            year: 'Année',
+            month: 'Mois',
+            week: 'Semaine',
+            day: 'Jour',
+            list: 'Planning',
+            
+            },
+
+            nowIndicator: true,
+
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',
+            },
+
+            
+            weekText: 'Sem.',
+            weekTextLong: 'Semaine',
+            
+            moreLinkText: 'en plus',
+            noEventsText: 'Aucun évènement à afficher',
+            locale: 'fr',
+            buttonIcons: false, // show the prev/next text
+            weekNumbers: true,
+            navLinks: true, // can click day/week names to navigate views
+            editable: true,
+            timeZone: 'Europe/Paris',
+
+            events: {{ data|raw }},
+            editable: true,
+            eventResizableFromStart: true,
+
+            
+           
+            
+
+            eventClick: function(info) {
+
+                alert( 'Matiere : ' + info.event.title + '\nL\'heure de debut : ' + info.event.start + '\nL\'heure de fin : ' + info.event.end);
+
+                // change the border color just for fun
+                info.el.style.backgroundColor = 'green';
+            },
+
+        })
+
+
+        calendar.on('eventChange', (e) => {
+            let url = `/api/${e.event.id}/edit`
+            let donnees = {
+                "id": e.event.id,
+                "title": e.event.title,
+                "date": e.event.date,
+                "timeStart": e.event.start,
+                "timeEnd": e.event.end,
+                
+            }
+        console.log(donnees) 
+
+        
+         
+    
+
+        let xhr = new XMLHttpRequest();
+
+        xhr.open("PUT", url)
+        xhr.send(JSON.stringify(donnees))
+        })
+
+        calendar.render()
+    }
+
+</script>
+    
+{% endblock %}
+

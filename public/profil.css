@@ -1,0 +1,23 @@
+#container {
+    background-color: #373737;
+    color : white;
+    padding : 1%;
+    border-radius: 5px;
+    margin-top : 3%;
+    margin-right: 6%;
+    margin-left: 6%;
+}
+
+
+
+#info {
+    background-color: #767BDE;
+    padding: 1%;
+    margin: 2%;
+    border-radius: 5px;
+}
+
+#editBtn { 
+    text-decoration: none;
+    
+}

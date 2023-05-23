@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Eleve index{% endblock %}
+
+{% block styleAccueilEleve %}
+<link href="{{asset('asset/assets/css/accueilEleve.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<div id="containeurTrois" >
+
+<div id="ContainerDeux">
+    <div id="AjoutEtudiant" >
+        <h5 class="titreEtudiant">Etudiant</h5>
+        {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('app_eleve_new') }}">
+            <button class="btn btn-primary">Nouveau étudiant</button>
+        </a>
+        <a href="{{ path('app_absence_new') }}">
+            <button class="btn btn-primary">Ajouter une absence</button>
+        </a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="container">
+    {% for message in app.flashes('success') %}
+    <div class="alert alert-success mt-5">
+        {{ message }}
+    </div>
+{% endfor %}
+    <table class="table table-hover mt-5">
+        <thead>
+            <tr class="table-dark">
+                <th>Mail</th>
+                <th>Nom </th>
+                <th>Prenom </th>
+                <th>Date naissance</th>
+                {% if is_granted('ROLE_ADMIN') %}
+                <th>actions</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for eleve in eleves %}
+            <tr  class="table-primary">
+                <td>{{ eleve.mail }}</td>
+                <td>{{ eleve.nom }}</td>
+                <td>{{ eleve.prenom }}</td>
+                <td>{{ eleve.dateNaissEleve ? eleve.dateNaissEleve|date('Y-m-d') : '' }}</td>
+                {% if is_granted('ROLE_ADMIN') %}
+                <td>
+                    <a href="{{ path('app_eleve_edit', {'id': eleve.id}) }}">
+                        <button class="btn btn-primary">Modifier</button>
+                    </a>
+                </td>
+                {% endif %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        
+    </table>
+    <div class="navigation flex justify-center mb-8" >
+            {{ knp_pagination_render(eleves) }}
+        </div>
+
+</div>
+</div>
+{% endblock %}

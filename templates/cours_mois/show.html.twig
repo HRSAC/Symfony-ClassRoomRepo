@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cours{% endblock %}
+
+{% block body %}
+    <h1>Cours</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cour.id }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ cour.date ? cour.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Heure_debut</th>
+                <td>{{ cour.heureDebut ? cour.heureDebut|date('H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Heure_fin</th>
+                <td>{{ cour.heureFin ? cour.heureFin|date('H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Periode_debut</th>
+                <td>{{ cour.periodeDebut ? cour.periodeDebut|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Periode_fin</th>
+                <td>{{ cour.periodeFin ? cour.periodeFin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ cour.description }}</td>
+            </tr>
+            <tr>
+                <th>Matiere</th>
+                <td>{{ cour.matiere }}</td>
+            </tr>
+            <tr>
+                <th>Eleve_max</th>
+                <td>{{ cour.eleveMax }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cours_mois_index') }}">back to list</a>
+
+    <a href="{{ path('app_cours_mois_edit', {'id': cour.id}) }}">edit</a>
+
+    {{ include('cours_mois/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}statistique{% endblock %}
+
+{% block styleGraph %}
+{% endblock %}
+
+{% block body %}
+
+<div class="raw">
+    <div class="col-md-3">
+        <h1>Filtre</h1>
+        {# {{form(form)}} #}
+    </div>
+
+    <div class="col-md-9">
+
+    </div>
+
+</div>
+
+<div>
+    <canvas id="cours" width="50" heigth="100"></canvas>
+    {% include "partials/_graph.html.twig" %}
+
+    
+
+</div>
+{{dump()}}
+
+{% endblock %}

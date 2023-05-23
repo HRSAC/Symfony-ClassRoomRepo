@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User
+{% endblock %}
+
+{% block styleProfilEdit %}
+	<link href="{{asset('asset/assets/css/edit.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+
+	<body>
+
+		<h2 class="titreMDP"> Modifier vos identifiant de connexion </h2>
+
+	    {{ include('profil_user/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+		{# <a href="{{ path('app_profil_user_index') }}">
+			<button>
+				Retour
+			</button>
+		</a> #}
+
+	</body>
+
+
+</div>{% endblock %}

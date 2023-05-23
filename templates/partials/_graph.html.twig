@@ -1,0 +1,32 @@
+{% block javascripts %}
+    {# <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script> #}
+    {# <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js" integrity="sha512-v3ygConQmvH0QehvQa6gSvTE2VdBZ6wkLOlmK7Mcy2mZ0ZF9saNbbk19QeaoTHdWIEiTlWmrwAL4hS8ElnGFbA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> #}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.2/Chart.min.js" integrity="sha512-uWTfEVcTAr+NF8RnQix39Vnfd93celVTAjU2pi4LpdrsPLeLg5RYywi5rw9oF8oCQaJ6b2YPALceNbf3kfDJaA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        let cours = document.querySelector("#cours");
+        let graph = new Chart(cours, {
+            type: 'pie',
+            data: {
+                //ne reconnait pas les cours (voir dans le controller).
+                labels: {{coursMatiere|raw}},
+                datasets: [{
+                    label: 'repartitions des cours',
+                    //mettre les absences ici ou du moins essayer.
+                    data: {{absences|raw}},
+                    backgroundColor: ['red', 'green', 'blue', 'purple', 'orange'],
+                   
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'mon joli graphique'
+                },
+                legend: {
+                    position: 'bottom',
+                }
+            }
+        });
+    </script>
+
+{% endblock %}

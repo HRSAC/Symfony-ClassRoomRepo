@@ -1,0 +1,137 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Profil
+{% endblock %}
+
+{% block styleAccueil %}
+	<link href="{{asset('asset/assets/css/accueil.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block styleProfil %}
+	<link rel="stylesheet" href="{{ asset('asset/assets/css/profil.css') }}">
+{% endblock %}
+
+{% block body %}
+
+
+	<tbody>
+
+		<div id="container">
+
+			{# div informations personnelles #}
+			<div class="info">
+				<h4 class="titreInfo">
+					Informations personelles :
+				</h4>
+
+			</div>
+
+			<div class="infoCoord">
+				<h5 class="titreInfo">
+					Prenom :
+					{{ user.prenomUser }}
+				</h5>
+				<h5 class="titreInfo">
+					Nom :
+					{{ user.nomUser }}
+
+				</h5>
+				<h5 class="titreInfo">
+					Adresse :
+					{{ user.adresse }}
+
+				</h5>
+				<h5 class="titreInfo">
+					Sexe :
+					{% if user.sexe is same as(1) %}
+							Femme
+						{% else %}
+							Homme
+					{% endif %}
+				</h5>
+
+				<h5 class="titreInfo">
+					Téléphone :
+					{{ user.telephone }}
+
+				</h5>
+
+				<div class="btnEdit">
+					<h5 class="titreInfo">
+						Date de naissance :
+						{{ user.dateNaissUser ? user.dateNaissUser|date('Y-m-d') : '' }}
+
+					</h5>
+
+					<a href="{{ path('app_profil_user_editInfoPerso', {'id': user.id}) }}" id="editBtn" class=" btnEditColor, lienUpdate">
+						Changer les infos personnelles
+					</a>
+
+				</div>
+			</div>
+
+			{# div email #}
+			<div class="info">
+				<h4 class="titreInfo">
+					Informations de connexion :
+				</h4>
+			</div>
+
+			<div class="infoCoordMail">
+
+				<h5 class="titreInfo">
+					Email :
+					{{ user.mail }}
+				</h5>
+
+					<a href="{{ path('app_profil_user_editMail', {'id': user.id}) }}" id="editBtn" class="btnEditColor, lienUpdate">
+						Changer l'email
+					</a>
+			</div>
+
+			{# div mot de passe #}
+			<div class="info">
+				<h4 class="titreInfo">
+					Mot de passe :
+				</h4>
+			</div>
+
+			<div class="infoCoord, btnEdit">
+
+				<div class="titreInfo">
+					<h5 class="titreInfo">
+						*******
+					</h5>
+				</div>
+
+				<div>
+					<a href="{{ path('app_profil_user_editMDP', {'id': user.id}) }}" id="editBtn" class="lienUpdateMDP">
+						Changer le mot de passe
+					</a>
+				</div>
+
+			</div>
+
+
+		</div>
+	</tbody>
+</div>
+
+{# <a href="{{ path('app_profil_user_edit', {'id': user.id}) }}" id="editBtn">
+	<div class="d-grid gap-2 col-6 mx-auto">
+
+		<button class="btn btn-light mb-4 mt-4" type="button">Changer les informations personnelles</button>
+	</div>
+</a> #}
+
+<div class="col-md-6 offset-md-3 mt-5 bg-primary rounded">
+
+	<h3 class="container text-center text-light mt-5 p-3">
+		Emploi du temps
+	</h3>
+
+	{# <div id="calendrier2">
+	    	{% include "partials/_calendar.html.twig" %}
+		</div> #}
+</div></tbody>{% endblock %}

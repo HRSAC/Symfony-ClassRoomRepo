@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Professeur index{% endblock %}
+
+{% block styleAccueilProf %}
+<link href="{{asset('asset/assets/css/accueilProfs.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<div id="ContainerDeux">
+    <div id="AjoutProfs" >
+        <a>Professeur</a>
+        <a href="{{ path('app_user_new') }}">
+            <button class="btn btn-primary">Nouveau Prof</button>
+        </a>
+    </div>
+</div>
+    
+    <div class="container"  >
+<table class="table mt-5">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Date naissance</th>
+                <th>Mail</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {# {% for user in users %} #}
+            <tr>
+                <td>{{ user.username }}</td>
+                <td>{{ user.nomUser }}</td>
+                <td>{{ user.prenomUser }}</td>
+                <td>{{ user.dateNaissUser ? user.dateNaissUser|date('Y-m-d') : '' }}</td>
+                <td>{{ user.mail }}</td>
+                <td>
+                    <a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
+                    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+                </td>
+            </tr>
+        {# {% else %} #}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {# {% endfor %} #}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

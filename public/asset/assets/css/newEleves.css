@@ -1,0 +1,23 @@
+#ContainerDeux {
+    background-color: #373737;
+    color : white;
+    padding : 1%;
+    border-radius: 5px;
+    margin-top : 3%;
+    margin-right: 6%;
+    margin-left: 20%;
+    height: 50px;
+}
+
+.container{
+    margin-left: 17%;
+    width: auto;
+    width: 80%;
+}
+
+
+#infoAjout {
+    padding: 1%;
+    margin: 2%;
+    border-radius: 5px;
+}

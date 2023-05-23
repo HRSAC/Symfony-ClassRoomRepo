@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Absence{% endblock %}
+
+{% block styleEditAbsence %}
+<link href="{{asset('asset/assets/css/absenceEdits.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<div id="ContainerDeux">
+    <div id="AjoutProfs" >
+        <a>Modifier Absence<a>
+    </div>
+
+    <div class="container">
+        <div id="infoAjout">
+            {{ include('absence/_form.html.twig') }}
+            
+        </div>
+    </div>
+
+</div>
+{% endblock %}

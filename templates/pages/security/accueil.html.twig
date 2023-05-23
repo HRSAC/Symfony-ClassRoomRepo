@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Calendrier
+{% endblock %}
+
+{% block styleAccueil %}
+<link href="{{asset('asset/assets/css/accueil.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+
+
+<h1 class="titrePage">Page Accueil</h1>
+
+<div class="containerBtn">
+    <div class="divBtn">
+        {# Button ajout élève #}
+        {# <a href="{{ path('app_eleve_new') }}"> #}
+            <button class="btn btn-outline-dark">Ajouter un étudiant</button> 
+        </a>
+    </div>
+
+    <div class="divBtn">
+        {# Button ajout élève #}
+        <a href="{{ path('app_user_new') }}"> 
+            <button class="btn btn-outline-dark">Ajouter un professeur</button>
+        </a>
+    </div>
+
+    <div class="divBtn">
+        {# Button ajout élève #}
+        {# <a href="{{ path('app_user_new') }}"> #}
+            <button class="btn btn-outline-dark">Generer un QrCode</button>
+        {# </a> #}
+    </div>
+</div>
+
+
+
+<div id="calendrier">
+    {% include "partials/_calendar.html.twig" %}
+</div>
+
+<pre>
+    {{ dump() }}
+</pre>
+
+{% endblock %}

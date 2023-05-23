@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Absence{% endblock %}
+
+{% block styleNewAbsence %}
+	<link href="{{asset('asset/assets/css/newAbsence.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<tbody>
+		
+    <div id="ContainerDeux">
+        <div id="AjoutProfs" >
+            <a> Ajouter une nouvelle Absence</a>
+        </div>
+    </div>
+    <div class="container">
+        <div id="infoAjout">
+            {{ include('absence/_form.html.twig') }}
+            <a  href="{{ path('app_absence_index') }}">
+            </a>
+        </div>
+    </div>
+</tbody>
+{% endblock %}

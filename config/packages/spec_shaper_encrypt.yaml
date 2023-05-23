@@ -1,0 +1,4 @@
+spec_shaper_encrypt:
+  encrypt_key: '%env(SPEC_SHAPER_ENCRYPT_KEY)%'
+  is_disabled : true 
+  

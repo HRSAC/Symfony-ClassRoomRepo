@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion
+{% endblock %}
+
+{% block styleConnexion %}
+	<link href="{{asset('asset/assets/css/connexion.css')}}" rel="stylesheet">
+{% endblock %}
+
+
+{% block body %}
+
+	<div class="container">
+		<div class="placementLabel">
+			<form action="{{ path('security.login') }}" method="post">
+				<fieldset>
+					<h2 class="titre">
+						CLASSROOM
+					</h2>
+
+					<div class="form-group w-75">
+						<label for="username" class="form-label mt-4">Email address</label>
+						<input type="email" class="form-control" id="username" name="_username" placeholder="Enter email">
+					</div>
+
+					<div class="form-group w-75">
+						<label for="password" class="form-label mt-2">Password</label>
+						<input type="password" class="form-control" id="password" name="_password" placeholder="Password">
+					</div>
+
+					<button type="submit" class="btn btn-dark">Submit</button>
+
+				</form>
+			</div>
+		</div>
+
+
+	{% endblock %}

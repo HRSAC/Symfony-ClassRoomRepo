@@ -1,0 +1,55 @@
+{% block styleNavBar %}
+<link href="{{asset('asset/assets/css/nav.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% if app.user %}
+
+<nav class="navbar navbar-expand-lg navbar-vertical navbar-light  bg-light border-right p-4 border" id="sidebarNav">
+  <a class="navbar-brand" href="#">ClassRoom</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse align-content-stretch flex-wrap" id="navbarSupportedContent">
+     <ul class="navbar-nav flex-column w-100">
+      <a class="nav-link mt-6 " href="{{path('app_accueil')}}" role="button" aria-expanded="false">
+        Calendrier
+      </a>
+      <li class="nav-item dropdown">
+        
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Mon profil
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="{{ path('app_profil_user_index') }}">Mon profil</a></li>
+            <li><a class="dropdown-item" href="{{path('app_statistiques')}}">Statistiques</a></li>
+        </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Eleves/Professeurs
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="{{ path('app_eleve_index') }}">Liste des eleves</a></li>
+              <li><a class="dropdown-item" href="{{ path('app_user_index') }}">Liste des professeurs</a></li>
+              <li><a class="dropdown-item" href="{{ path('app_absence_index') }}">Liste des absences</a></li>
+          </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Activitées
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="{{ path('app_cours_mois_index') }}">Tout les cours</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('security.logout')}}">Deconnection</a>
+      </li>
+
+       
+        
+     </ul>
+     
+  </div>
+</nav>
+{% endif %}

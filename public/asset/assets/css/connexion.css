@@ -1,0 +1,30 @@
+.container {
+    margin: 0 auto;
+}
+
+
+.placementLabel {
+    margin-top: 10%;
+    margin-left: 12%;
+    margin-right: 12%;
+    background-color: rgba(0, 0, 0, 0.069);
+    border-radius: 15px;
+}
+
+.form-group {
+    margin-left:13%;
+
+}
+
+.btn {
+    margin-left: 45%;
+    margin-top: 4%;
+    margin-bottom: 5%;
+
+}
+
+.titre {
+    margin-left: 11%;
+    margin-top: 5%;
+
+}

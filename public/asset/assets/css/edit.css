@@ -1,0 +1,56 @@
+/* 
+  .w3docs {
+    margin-left: 70px;
+    font-weight: bold;
+    text-align: left;
+    font-family: sans-serif, bold, Arial, Helvetica;
+    font-size: 14px;
+  } */
+/* .buttons {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  } */
+/* div input {
+    margin-right: 10px;
+  } */
+
+/*  div contenant tout les inputs et labels */
+form {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+/*Titre changement de mot de passe */
+.titreMDP {
+  margin-top: 5%;
+  margin-left: 20%;
+  margin-bottom: 2%;
+}
+
+
+/* Taille des champs à remplir */
+form input {
+  padding: 10px;
+}
+
+/* Date de naissance */
+form select {
+  background-color: #ffffff;
+  padding: 5px;
+}
+
+/* form textarea {
+    padding: 10px;
+    margin-bottom: 5px;
+  } */
+
+/* placement des labels (nom,prénom, date de naissance etc...) */
+form label {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+/* Bouton retour à la page précedente */

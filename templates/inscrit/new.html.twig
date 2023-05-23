@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Inscrit{% endblock %}
+
+{% block styleNewInscrit %}
+	<link href="{{asset('asset/assets/css/newInscrit.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+		
+<div id="ContainerDeux">
+    <div id="AjoutProfs" >
+        <a> faire une inscription</a>
+    </div>
+</div>
+<div class="container">
+    <div id="infoAjout">
+        {{ include('inscrit/_form.html.twig') }}
+        <a  href="{{ path('app_inscrit_index') }}">
+        </a>
+    </div>
+</div>
+</tbody>
+
+    
+{% endblock %}

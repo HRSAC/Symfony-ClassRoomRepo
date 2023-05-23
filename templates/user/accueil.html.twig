@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Professeur index{% endblock %}
+
+{% block styleAccueilProf %}
+<link href="{{asset('asset/assets/css/accueilProf.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<div id="ContainerDeux">
+    <div id="AjoutProfs" >
+        
+        <h5 class="titreEtudiant">Professeur</h5>
+        {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('app_user_new') }}">
+            <button class="btn btn-primary">Nouveau Prof</button>
+        </a>
+        {% endif %}
+    </div>
+</div>
+    
+    <div class="container"  >
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success mt-5">
+                {{ message }}
+            </div>
+        {% endfor %}
+<table class="table table-hover mt-5">
+        <thead>
+            <tr class="table-dark">
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Date naissance</th>
+                <th>Mail</th>
+                {% if is_granted('ROLE_ADMIN') %}
+                <th>actions</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr class="table-primary">
+                
+                <td>{{ user.nomUser }}</td>
+                <td>{{ user.prenomUser }}</td>
+                <td>{{ user.dateNaissUser ? user.dateNaissUser|date('Y-m-d') : '' }}</td>
+                <td>{{ user.mail }}</td>
+                {% if is_granted('ROLE_ADMIN') %}
+                <td>
+                    <a href="{{ path('app_user_edit', {'id': user.id}) }}">
+                        <button class="btn btn-primary">Modifier</button>
+                    </a>
+                </td>
+                {% endif %}
+            </tr>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation flex justify-center mb-8" >
+        {{ knp_pagination_render(users) }}
+    </div>
+    </div>
+{% endblock %}

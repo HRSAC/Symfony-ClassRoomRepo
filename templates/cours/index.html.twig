@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cours du jours{% endblock %}
+
+{% block styleCours %}
+<link href="{{asset('asset/assets/css/cours.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div id="ContainerDeux">
+    <div id="AjoutProfs" >
+        <h5 class="titreEtudiant">Cours du jours</h5>
+        <a href="{{ path('app_cours_mois_index') }}">
+            <button class="btn btn-primary">Afficher tout les cours</button>
+        </a>
+        {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('app_cours_new') }}">
+            <button class="btn btn-primary">Nouveau Cours </button>
+        </a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="container"  >
+    <table class="table table-hover mt-5">
+        <thead>
+            <tr class="table-dark" >
+                <th>Date</th>
+                <th>Heure_debut</th>
+                <th>Heure_fin</th>
+                <th>Periode_debut</th>
+                <th>Periode_fin</th>
+                <th>Description</th>
+                <th>Matiere</th>
+                <th>Eleve_max</th>
+                <th>Professeur</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% set weekStart   = date(date())|date('Y-m-d') %}
+            {% set weekEnd  = date(date())|date('Y-m-d') %}            
+        {% for cour in cours %}
+        {% if cour.date|date('Y-m-d') ==  weekStart and cour.date|date('Y-m-d') <= weekEnd %}
+            <tr class="table-primary">
+                <td>{{ cour.date ? cour.date|date('Y-m-d') : '' }}</td>
+                <td>{{ cour.heureDebut ? cour.heureDebut|date('H:i:s') : '' }}</td>
+                <td>{{ cour.heureFin ? cour.heureFin|date('H:i:s') : '' }}</td>
+                <td>{{ cour.periodeDebut ? cour.periodeDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ cour.periodeFin ? cour.periodeFin|date('Y-m-d') : '' }}</td>
+                <td>{{ cour.description }}</td>
+                <td>{{ cour.matiere }}</td>
+                <td>{{ cour.eleveMax }}</td>
+                <td> {{cour.user}} </td>
+                <td>
+                    <a href="{{ path('app_cours_edit', {'id': cour.id}) }}">
+                        <button class="btn btn-primary">Modifier</button>
+                    </a>
+                    
+                </td>
+            </tr>
+        {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation flex justify-center mb-8" >
+        {{ knp_pagination_render(cours) }}
+    </div>
+
+</div>
+    
+
+{% endblock %}

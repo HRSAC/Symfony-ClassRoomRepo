@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block styleEditProf %}
+<link href="{{asset('asset/assets/css/editProfs.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+{% if is_granted('ROLE_ADMIN') %}
+
+<div id="ContainerDeux">
+    <div id="AjoutProfs" >
+        <a>Modifier Professeur<a>
+    </div>
+    
+    <div class="container">
+        <div id="infoAjout">
+            {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+            <a  href="{{ path('app_user_index') }}">
+            </a>
+        </div>
+    </div>
+    
+
+
+
+
+</div>
+{% endif %}
+   
+{% endblock %}

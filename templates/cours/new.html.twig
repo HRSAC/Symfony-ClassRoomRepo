@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Cours{% endblock %}
+
+{% block styleNewProfs %}
+	<link href="{{asset('asset/assets/css/newCours.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<tbody>
+		
+    <div id="ContainerDeux">
+        <div id="AjoutProfs" >
+            <a> Ajouter un Cours</a>
+        </div>
+    </div>
+    <div class="container">
+        <div id="infoAjout">
+            {{ include('cours/_form.html.twig') }}
+            <a  href="{{ path('app_user_index') }}">
+            </a>
+        </div>
+    </div>
+</tbody>
+{% endblock %}

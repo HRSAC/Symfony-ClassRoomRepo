@@ -1,0 +1,62 @@
+#container {
+    
+    background-color: #ffffff44;
+    color : rgb(255, 255, 255);
+    padding : 1%;
+    border-radius: 5px;
+    margin-top : 3%;
+    margin-left: 40%;
+    margin-right: 10%;
+}
+
+
+.info {
+    background-color: #000000d2;   
+    border-radius: 5px;
+    color: white;
+}
+
+.infoCoord {
+    color: black;
+}
+
+.infoCoordMail {
+    color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnEdit {
+    display: flex;
+    justify-content: space-between;
+    color: black;
+}
+
+.btnEditColor {
+    color: rgb(81, 0, 242);
+}
+
+#editBtn { 
+    text-decoration: none;
+}
+
+.titreInfo {
+    margin-left: 1%;
+
+}
+
+.lienUpdate {
+    margin-right: 1%;
+}
+
+.lienUpdate:hover {
+    color: blue;
+}
+
+.lienUpdateMDP {
+    margin-right: 15px;
+}
+
+.lienUpdateMDP:hover {
+    color: blue;
+}

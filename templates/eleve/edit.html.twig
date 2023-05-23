@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Eleve{% endblock %}
+
+{% block styleEditEleve %}
+<link href="{{asset('asset/assets/css/elevesEdit.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<div id="ContainerDeux">
+    <div id="AjoutProfs" >
+            <a>Modifier une élève<a>
+        </div>
+        <div class="container">
+            <div id="infoAjout">
+                {{ include('eleve/_form.html.twig', {'button_label': 'Update'}) }}
+                <a  href="{{ path('app_user_index') }}">
+                </a>
+            </div>
+        </div>
+
+
+
+    </div>
+{% endblock %}
